@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+</head>
+<body>
+<center>
+<form>
+<table><tr>	
+<td>principal</td><td><input type="number" name="P" id="P"></td></tr>
+<tr><td>Rate</td><td><input type="number" name="R" id="R"></td></tr>
+<tr><td>Time</td><td><input type="number" name="T" id="T"></td></tr>
+<tr><td> Result</td><td><span id="result"></span></td></tr>
+<tr><td> Result2</td><td><span id="result2"></span></td></tr>
+</table>
+<br><br>
+<input type="reset" name="reset" value ="reset">
+</form>
+<button onclick="cal()">Calculate</button>
+<button onclick="cal2()">Calculate2</button>
+
+</center>
+<script type="text/javascript">
+	function cal(){
+	var P = document.getElementById('P').value;
+	var R  = document.getElementById('R').value;
+	var T= document.getElementById('T').value;
+
+	var calculate = P*(Math.pow(1+(R/100),T)-1);
+	document.getElementById('result').innerHTML=calculate.toFixed(4);	
+}
+
+	function cal2(){
+	var P = document.getElementById('P').value;
+	var R  = document.getElementById('R').value;
+	var T= document.getElementById('T').value;
+
+	var calculate = P*(Math.pow(1+(R/100),T));
+	document.getElementById('result2').innerHTML=calculate.toFixed(4);	
+}
+
+</script>
+
+</body>
+</html>
