@@ -3,37 +3,71 @@
 <head>
 	<title></title>
 	<meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+<meta content="utf-8" http-equiv="encoding">
+
 	<style>
 		body{
+			max-width:100%;
 			background-color:#000;
 			color:#fff;
 		}
+		.main{
+			/*border:5px solid #fff;*/
+			width:500px;
+		/*	overflow: hidden;*/
+			margin:300px auto;
+		}
+		.result{
+			padding:10px;
+
+		}
+		input{
+			border-radius:5px;
+			padding:10px;
+			margin-bottom:5px;
+			width: 95%;
+		}
+		button{
+			border-radius:5px;
+			padding:10px;
+			margin-bottom:5px;
+			width: 50%;
+			float: left;
+		}
+		#reset{
+			border-radius:5px;
+			padding:10px;
+			margin-bottom:5px;
+			width: 100%;
+		}
+		span{
+			border-radius:5px;
+			padding:10px;
+			margin-bottom:5px;
+			width: 100%;
+		}
 	</style>
-	
-<meta content="utf-8" http-equiv="encoding">
 </head>
 <body>
-<center>
+	<div class="main">
 <form>
-<table><tr>	
-<td>principal</td><td><input type="number" name="P" id="P"></td></tr>
-<tr><td>Rate</td><td><input type="number" name="R" id="R"></td></tr>
-<tr><td>Time</td><td><input type="number" name="T" id="T"></td></tr>
-<tr><td> Result</td><td><span id="result"></span></td></tr>
-<tr><td> Result2</td><td><span id="result2"></span></td></tr>
-</table>
-<br><br>
-<input type="reset" name="reset" value ="reset">
+	<h1>Compund Calc</h1>
+<input type="text" name="P" id="P" placeholder="Principal">
+<input type="text" name="R" id="R" placeholder="Rate">
+<input type="text" name="T" id="T" placeholder="Time">
+<div class="result"><label>Result1 :</label><span id="result"></span></div>
+<div class="result"><label>Result2 :</label><span id="result2"></span></div>
+<br>
 </form>
-<button onclick="cal()">Calculate</button>
+<button onclick="cal()">Calculate1</button>
 <button onclick="cal2()">Calculate2</button>
-
-</center>
+<button onclick="reset()" id="reset">Reset</button>
+</div>
 <script type="text/javascript">
 	function cal(){
-	var P = document.getElementById('P').value;
-	var R  = document.getElementById('R').value;
-	var T= document.getElementById('T').value;
+	var P = Number(document.getElementById('P').value);
+	var R  = Number(document.getElementById('R').value);
+	var T= Number(document.getElementById('T').value);
 
 	var calculate = P*(Math.pow(1+(R/100),T)-1);
 	document.getElementById('result').innerHTML=calculate.toFixed(4);	
@@ -46,6 +80,13 @@
 
 	var calculate = P*(Math.pow(1+(R/100),T));
 	document.getElementById('result2').innerHTML=calculate.toFixed(4);	
+}
+function reset(){
+	document.getElementById('P').value="";
+	document.getElementById('R').value="";
+	document.getElementById('T').value="";
+	document.getElementById('result').innerHTML="";
+	document.getElementById('result2').innerHTML="";
 }
 
 </script>
